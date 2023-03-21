@@ -2,12 +2,14 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProdutoController;
+use App\Http\Controllers\CategoriaController;
 
 
 Route::get('/', function () {
     return view('welcome');
 });
 
+// ----------------PRODUTO----------------
 
 Route::get(
     '/produto', [ProdutoController::class, 'index']
@@ -46,4 +48,42 @@ Route::put(
 Route::delete(
     '/produto/{id}', [ProdutoController::class, 'destroy']
 )->name('produto.destroy');
+
+
+// ----------------PRODUTO----------------
+
+
+
+// ----------------CATEGORIA--------------
+
+Route::get('/categoria', [CategoriaController::class, 'index'])
+->name('categoria.index');
+
+// create
+// exibir o formulário
+Route::get('/categoria/create', [CategoriaController::class, 'create'])
+->name('categoria.create');
+
+// salvar o formulário
+Route::post('/categoria/create', [CategoriaController::class, 'store'])
+->name('categoria.store');
+
+
+Route::get('/categoria/{id}', [CategoriaController::class, 'show'])
+->name('categoria.show');
+
+// EDIT
+// exibe o formulário com os dados do recurso
+Route::get('/categoria/{id}/edit', [CategoriaController::class, 'edit'])
+->name('categoria.edit');
+
+// atualiza os dados do recurso passados pelo formulário
+Route::put('/categoria/{id}', [CategoriaController::class, 'update'])
+->name('categoria.update');
+
+//DESTROY
+Route::delete('/categoria/{id}', [categoriaController::class, 'destroy'])
+->name('categoria.destroy');
+
+// ----------------CATEGORIA----------------
 
