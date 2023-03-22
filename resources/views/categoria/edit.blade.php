@@ -8,7 +8,7 @@
     </head>
         <body>
 
-                    @extends('adminlte::page')
+                    
 
             @section('content')
 
