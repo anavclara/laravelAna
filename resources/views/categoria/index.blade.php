@@ -7,10 +7,6 @@
         <title>Laravel</title>
     </head>
         <body>
-                    @extends('adminlte::page')
-
-                    @section('content')
-
                         Produtos<br>
                         <a href="{{ url('categoria/create') }}">CRIAR</a>
 
