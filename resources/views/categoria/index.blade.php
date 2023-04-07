@@ -25,13 +25,13 @@
                             <tr>
                                 <td>{{ $value->nome }}</td>
                                 <td>
-                                <a href="{{ url('categoria/' . $value->id) }}">Visualizar</a>
-                                <a href="{{ url('categoria/' . $value->id . '/edit') }}">Editar</a>
-                                {!! Form::open(['url' => 'categoria/' . $value->id, 'method' => 'delete']) !!}
-                                {{ Form::submit('EXCLUIR') }}
-                                {!! Form::close() !!}
-                                </td>
-                            </tr>
+                                                                < a  href = " {{ url ( ' categoria/ ' . $value -> id ) } } "    >Visualizar</ a >
+                                    < a  href = " {{ url ( ' categoria/ ' . $value -> id . ' /edit ' ) } } "      >Editar</ a >
+                                    {!! Form :: open ([ ' url '  =>  ' categoria/ '  .  $value -> id , ' method '  =>  ' delete ' ]) ! !}
+                                    {{ Formulário :: enviar ( ' EXCLUIR ' ) } }
+                                    {!! Formulário :: fechar () ! !}
+                                    </ td >
+                                </ tr >
                                 @endforeach
                     </table>
 

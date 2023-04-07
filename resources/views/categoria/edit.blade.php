@@ -10,7 +10,7 @@
 
                     
 
-            @section('content')
+            
 
 
                     {!! Form::open(['url' => 'categoria/' . $categoria->id, 'method' => 'put']) !!}
@@ -22,7 +22,7 @@
 
                     {!! Form::close() !!}
 
-            @endsection
+           
 
         </body>
     

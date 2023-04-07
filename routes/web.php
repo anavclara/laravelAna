@@ -9,7 +9,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-// ----------------PRODUTO----------------
+// ----------------PRODUTO INICIO----------------
 
 Route::get(
     '/produto', [ProdutoController::class, 'index']
@@ -50,40 +50,40 @@ Route::delete(
 )->name('produto.destroy');
 
 
-// ----------------PRODUTO----------------
+// ----------------PRODUTO FIM----------------
 
 
 
-// ----------------CATEGORIA--------------
+// ----------------CATEGORIA INICIO--------------
 
-Route::get('/categoria', [CategoriaController::class, 'index'])
-->name('categoria.index');
+Route:: get ( '/categoria' , [ CategoriaController ::class, 'index' ])
+-> name ( 'categoria.index' );
 
-// create
-// exibir o formulário
-Route::get('/categoria/create', [CategoriaController::class, 'create'])
-->name('categoria.create');
+// criar
+// exibe o formulário
+Route:: get ( '/categoria/create' , [ CategoriaController ::class, 'create' ])
+-> name ( 'categoria.create' );
 
-// salvar o formulário
-Route::post('/categoria/create', [CategoriaController::class, 'store'])
-->name('categoria.store');
+// salva o formulário
+Route:: post ( '/categoria/create' , [ CategoriaController ::class, 'store' ])
+-> name ( 'categoria.store' );
 
 
-Route::get('/categoria/{id}', [CategoriaController::class, 'show'])
-->name('categoria.show');
+Route:: get ( '/categoria/{id}' , [ CategoriaController ::class, 'show' ])
+-> name ( 'categoria.show' );
 
-// EDIT
+// EDITAR
 // exibe o formulário com os dados do recurso
-Route::get('/categoria/{id}/edit', [CategoriaController::class, 'edit'])
-->name('categoria.edit');
+Route:: get ( '/categoria/{id}/edit' , [ CategoriaController ::class, 'edit' ])
+-> name ( 'categoria.edit' );
 
-// atualiza os dados do recurso passados pelo formulário
-Route::put('/categoria/{id}', [CategoriaController::class, 'update'])
-->name('categoria.update');
+// atualiza os dados do recurso passados ​​pelo formulário
+Route:: put ( '/categoria/{id}' , [ CategoriaController ::class, 'update' ])
+-> name ( 'categoria.update' );
 
-//DESTROY
-Route::delete('/categoria/{id}', [categoriaController::class, 'destroy'])
-->name('categoria.destroy');
+//DESTRUIR
+Route:: delete ( '/categoria/{id}' , [categoriaController::class, 'destroy' ])
+-> name ( 'categoria.destroy' );
 
-// ----------------CATEGORIA----------------
+// ----------------CATEGORIA FIM----------------
 
