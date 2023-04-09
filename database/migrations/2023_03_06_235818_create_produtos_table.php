@@ -18,7 +18,6 @@ return new class extends Migration
             $table->integer('quantidade');
             $table->double('valor', 8, 2);
             $table->timestamps();
-           
         });
     }
 

@@ -1,39 +1,36 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+@extends('adminlte::page')
 
-        <title>Laravel</title>
-   
-    </head>
-            <body>
+@section('content')
 
-                     @if ($errors->any())
-                        <div class="alert alert-danger">
-                            <ul>
-                                @foreach ($errors->all() as $error)
-                                    <li>{{ $error }}</li>
-                                @endforeach
-                            </ul>
-                        </div>
-                    @endif
 
-                    {!! Form::open(['url' => 'produto/create']) !!}
+        Formulário - CREATE
 
-                    {{ Form::label('nome', 'Nome:') }}<br>
-                    {{ Form::text('nome') }}<br>
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
 
-                    {{ Form::label('quantidade', 'Quantidade:') }}<br>
-                    {{ Form::text('quantidade') }}<br>
+        {!! Form::open(['url' => 'produto/create']) !!}
 
-                    {{ Form::label('valor', 'Valor:') }}<br>
-                    {{ Form::text('valor') }}<br>
+        {{ Form::label('categoria', 'Categoria:') }}<br>
+        {{ Form::select('categoria_id', $categorias) }}<br>
 
-                    {{ Form::submit('Enviar') }}
+        {{ Form::label('nome', 'Nome:') }}<br>
+        {{ Form::text('nome') }}<br>
 
-                    {!! Form::close() !!}
+        {{ Form::label('quantidade', 'Quantidade:') }}<br>
+        {{ Form::text('quantidade') }}<br>
 
-            </body>
-    
-</html>
+        {{ Form::label('valor', 'Valor:') }}<br>
+        {{ Form::text('valor') }}<br>
+
+        {{ Form::submit('Enviar') }}
+
+        {!! Form::close() !!}
+
+@endsection

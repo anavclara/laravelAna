@@ -1,20 +1,12 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+@extends('adminlte::page')
 
-        
-    </head>
-        <body>
-            PRODUTOS<br>
+@section('content')
 
-            <b>Nome:</b> {{ $produto->nome }}<br>
-            <b>quantidade</b> {{ $produto->quantidade }}<br>
-            <b>Valor</b> {{ $produto->valor }}<br>
+    Produto - show<br>
 
-        </body>
-        
+        <b>Categoria:</b> {{ $produto->categoria->nome }}<br>
+        <b>Nome:</b> {{ $produto->nome }}<br>
+        <b>Quantidade</b> {{ $produto->quantidade }}<br>
+        <b>Valor</b> {{ $produto->valor }}<br>
 
-
-</html>
+@endsection

@@ -13,7 +13,6 @@ class ProdutoController extends Controller
      */
     public function index()
     {
-       
         $produtos = Produto::orderBy('nome')->get();
         return view('produto.index', ['produtos' => $produtos]);
     }
@@ -23,7 +22,8 @@ class ProdutoController extends Controller
      */
     public function create()
     {
-        return view('produto.create');
+        $categorias = Categoria::orderBy('nome', 'ASC')->pluck('nome', 'id');
+        return view('produto.create', ['categorias' => $categorias]);
     }
 
     /**
@@ -33,19 +33,21 @@ class ProdutoController extends Controller
     {
         //dd($request->all());
         $validated = $request->validate([
-            'nome' => 'required|min:5',
-            'quantidade' => 'required|integer',
-            'valor' => 'required',
+            'categoria_id'  => 'required',
+            'nome'          => 'required|min:5',
+            'quantidade'    => 'required|integer',
+            'valor'         => 'required',
         ]);
 
         $produto = new Produto;
+        $produto->categoria_id  = $request->categoria_id;
         $produto->nome          = $request->nome;
-        $produto->quantidade    = $request->quantidade;
         $produto->quantidade    = $request->quantidade;
         $produto->valor         = $request->valor;
         $produto->save();
 
         return redirect('/produto')->with('status', 'Produto criado com sucesso!');
+
     }
 
     /**
@@ -62,10 +64,9 @@ class ProdutoController extends Controller
      */
     public function edit(string $id)
     {
-    
         $produto = Produto::find($id);
-
-        return view('produto.edit', ['produto' => $produto]);
+        $categorias = Categoria::orderBy('nome', 'ASC')->pluck('nome', 'id');
+        return view('produto.edit', ['produto' => $produto, 'categorias' => $categorias]);
     }
 
     /**
@@ -73,20 +74,22 @@ class ProdutoController extends Controller
      */
     public function update(Request $request, string $id)
     {
-
         $validated = $request->validate([
-            'nome'           => 'required|min:5',
-            'quantidade'     => 'required|integer',
-            'valor'          => 'required',
-        ]); 
+            'categoria_id'  => 'required',
+            'nome'          => 'required|min:5',
+            'quantidade'    => 'required|integer',
+            'valor'         => 'required',
+        ]);
 
         $produto = Produto::find($id);
+        $produto->categoria_id  = $request->categoria_id;
         $produto->nome          = $request->nome;
         $produto->quantidade    = $request->quantidade;
         $produto->valor         = $request->valor;
         $produto->save();
 
         return redirect('/produto')->with('status', 'Produto atualizado com sucesso!');
+
     }
 
     /**
